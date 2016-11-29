@@ -881,20 +881,6 @@ static stbi_uc *stbi__pnm_load(stbi__context *s, int *x, int *y, int *comp, int 
 static int      stbi__pnm_info(stbi__context *s, int *x, int *y, int *comp, char const **error);
 #endif
 
-// this is not threadsafe
-static const char *stbi__g_failure_reason;
-
-STBIDEF const char *stbi_failure_reason(void)
-{
-   return stbi__g_failure_reason;
-}
-
-static int stbi__err(const char *str)
-{
-   stbi__g_failure_reason = str;
-   return 0;
-}
-
 static void *stbi__malloc(size_t size)
 {
     return STBI_MALLOC(size);
